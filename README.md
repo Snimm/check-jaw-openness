@@ -34,7 +34,8 @@ python main.py
 
 ## Customization
 
-- **Threshold for Jaw Openness:** Users can input a custom threshold for jaw openness or use the default value.
+- **Threshold for Jaw Openness:** Users have the option to either input a custom threshold for jaw openness or utilize the default value, particularly beneficial when the user prefers to exercise an abundance of caution.
+
 
 - **Drawing Style:** Choose a drawing style for facial landmarks visualization, including TESSELATION, CONTOURS, IRIS, or None for no additional visualization.
 
