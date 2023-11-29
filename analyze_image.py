@@ -45,6 +45,4 @@ def check_image_for_jaw_openness(image: mp.Image) -> tuple[float, mp.Image]:
     # Perform face detection on the image
     detection_result = detector.detect(image)
 
-    # Draw landmarks on the image (add your drawing logic here if needed)
-
     return detection_result
