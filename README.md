@@ -7,7 +7,7 @@ This Python program utilizes OpenCV and MediaPipe to perform face analysis on im
 Before running the program, make sure to install python
 
 
-## Usage
+## Operational Procedure
 ```bash
 # Clone the repository
 git clone https://github.com/Snimm/check-jaw-openness
@@ -65,4 +65,34 @@ Enter the drawing style (TESSELATION/CONTOURS/IRIS): TESSELATION
 *Example output*
 
 ![Image Window_screenshot_30 11 2023](https://github.com/Snimm/check-jaw-openness/assets/53926889/a3a702aa-be17-4057-9c39-cc21b75858a3)
+
+
+
+
+**Understanding the Assignment:**
+
+The primary objective of this project is to develop an algorithm capable of analyzing images or videos of faces and classifying each frame based on whether the subject's jaw is open or closed.
+
+**Implementation Strategy:**
+
+1. **Fragment Video into Frames:**
+   - Extract frames from the input video. Each frame is treated as an independent unit for jaw openness classification.
+
+2. **Extract Face Landmarks:**
+   - Utilize Media Pipe's face_landmarker model to identify and extract all facial landmarks present in each frame.
+
+3. **Get Jaw Openness from Landmarks:**
+   - Directly extract the openness of the jaw from face blendshapes provided by MediaPipe based on the facial landmarks.
+
+4. **Classification Based on Jaw Openness:**
+   - Implement a classification step where frames are categorized as either having an open or closed jaw, determined by a predefined threshold of jaw openness.
+
+5. **Display Openness and Classification:**
+   - In the top-left corner of each processed image, showcase both the calculated openness of the jaw and the corresponding classification (open/closed).
+
+6. **Display Landmarks (Optional):**
+   - Offer the option to display facial landmarks in different styles such as TESSELATION, CONTOURS, or IRIS for visual reference.
+
+7. **Documentation:**
+   - I have ensure that the code is well-documented throughout the development process, with clear explanations and comments to facilitate understanding.
 
