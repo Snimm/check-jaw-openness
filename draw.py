@@ -60,29 +60,6 @@ def draw_landmarks_on_image(rgb_image, detection_result, drawing_style=None):
 
     return annotated_image
 
-def plot_face_blendshapes_bar_graph(face_blendshapes):
-    """
-    Plot a bar graph of face blendshapes.
-
-    Args:
-        face_blendshapes: The face blendshapes data.
-    """
-    face_blendshapes_names = [face_blendshapes_category.category_name for face_blendshapes_category in face_blendshapes]
-    face_blendshapes_scores = [face_blendshapes_category.score for face_blendshapes_category in face_blendshapes]
-    face_blendshapes_ranks = range(len(face_blendshapes_names))
-
-    fig, ax = plt.subplots(figsize=(12, 12))
-    bar = ax.barh(face_blendshapes_ranks, face_blendshapes_scores, label=[str(x) for x in face_blendshapes_ranks])
-    ax.set_yticks(face_blendshapes_ranks, face_blendshapes_names)
-    ax.invert_yaxis()
-
-    for score, patch in zip(face_blendshapes_scores, bar.patches):
-        plt.text(patch.get_x() + patch.get_width(), patch.get_y(), f"{score:.4f}", va="top")
-
-    ax.set_xlabel('Score')
-    ax.set_title("Face Blendshapes")
-    plt.tight_layout()
-    plt.show()
 
 def draw_image(openess_of_jaw: float, image: mp.Image, jaw_openness_threshold: float) -> mp.Image:
     """
@@ -104,7 +81,10 @@ def draw_image(openess_of_jaw: float, image: mp.Image, jaw_openness_threshold: f
     text_location = (0, image.shape[0] // 40 + 10)
 
     # Put text on the image
-    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 4, cv2.LINE_AA)
-    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+    put_text(image, text_to_put, text_location, size=.5)
 
     return image
+
+def put_text(image, text_to_put, text_location, size):
+    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, size, (255, 255, 255), 4, cv2.LINE_AA)
+    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, size, (0, 0, 0), 1, cv2.LINE_AA)
