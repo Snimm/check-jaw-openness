@@ -22,7 +22,7 @@ cd check-jaw-openness
 2. Run the program:
 
 ```bash
-python check-jaw-openness.py
+python main.py
 ```
 
 3. Follow the on-screen prompts to choose the type of input (image or video), provide the file path, and customize the analysis parameters.
@@ -40,7 +40,7 @@ python check-jaw-openness.py
 ### Video Processing
 
 ```bash
-python check-jaw-openness.py
+python main.py
 Enter the type of input (image/video): video
 Enter the path to the input file: path/to/your/video.mp4
 Do you want to enter a custom threshold for jaw openness? (y/n): y
@@ -52,7 +52,7 @@ Enter the drawing style (TESSELATION/CONTOURS/IRIS): CONTOURS
 ### Image Processing
 
 ```bash
-python check-jaw-openness.py
+python main.py
 Enter the type of input (image/video): image
 Enter the path to the input file: path/to/your/image.jpg
 Do you want to enter a custom threshold for jaw openness? (y/n): n
