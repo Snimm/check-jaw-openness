@@ -26,9 +26,6 @@ def check_image_for_jaw_openness(image: mp.Image) -> tuple[float, mp.Image]:
 
     Args:
         image (mp.Image): The input image.
-        TESSELATION (bool): Flag to include tessellation in the annotated image.
-        CONTOURS (bool): Flag to include contours in the annotated image.
-        IRIS (bool): Flag to include iris landmarks in the annotated image.
 
     Returns:
         Tuple[float, np.ndarray]: A tuple containing the openness of the jaw and the annotated image.
@@ -48,8 +45,6 @@ def check_image_for_jaw_openness(image: mp.Image) -> tuple[float, mp.Image]:
     # Perform face detection on the image
     detection_result = detector.detect(image)
 
-    # Draw landmarks on the image
-
+    # Draw landmarks on the image (add your drawing logic here if needed)
 
     return detection_result
-
