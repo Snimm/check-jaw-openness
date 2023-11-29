@@ -62,5 +62,7 @@ Do you want to enter a custom threshold for jaw openness? (y/n): n
 Do you want to enter a custom drawing style? (y/n): y
 Enter the drawing style (TESSELATION/CONTOURS/IRIS): TESSELATION
 ```
+*Example output*
+
 ![Image Window_screenshot_30 11 2023](https://github.com/Snimm/check-jaw-openness/assets/53926889/a3a702aa-be17-4057-9c39-cc21b75858a3)
 
