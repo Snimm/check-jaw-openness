@@ -4,24 +4,27 @@ This Python program utilizes OpenCV and MediaPipe to perform face analysis on im
 
 ## Installation
 
-Before running the program, make sure to install the required dependencies:
+Before running the program, make sure to install python
 
-```bash
-pip install opencv-python mediapipe numpy
-```
 
 ## Usage
-
-1. Clone the repository:
-
 ```bash
-git clone https://github.com/your-username/check-jaw-openness.git
+# Clone the repository
+git clone https://github.com/Snimm/check-jaw-openness
+
+# Navigate to the project directory
 cd check-jaw-openness
-```
 
-2. Run the program:
+# Create and activate a virtual environment (optional but recommended)
+python -m venv .venv
+source .venv/bin/activate  # For Linux/macOS
+# or
+.\.venv\Scripts\activate  # For Windows
 
-```bash
+# Install the required dependencies
+pip install -r requirements.txt
+
+# Run the application
 python main.py
 ```
 
