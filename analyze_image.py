@@ -20,7 +20,7 @@ def image_from_path(image_path: str) -> mp.Image:
     image = mp.Image.create_from_file(image_path)
     return image
 
-def check_image_openness(image: mp.Image, TESSELATION: bool = False, CONTOURS: bool = False, IRIS: bool = False) -> tuple[float, mp.Image]:
+def check_image_for_jaw_openness(image: mp.Image) -> tuple[float, mp.Image]:
     """
     Check the openness of the jaw in the given image.
 
@@ -49,10 +49,7 @@ def check_image_openness(image: mp.Image, TESSELATION: bool = False, CONTOURS: b
     detection_result = detector.detect(image)
 
     # Draw landmarks on the image
-    annotated_image = draw.draw_landmarks_on_image(image.numpy_view(), detection_result, drawing_style = None)
 
-    # Get the openness of the jaw
-    openness_of_jaw = detection_result.face_blendshapes[0][25].score
 
-    return openness_of_jaw, annotated_image
+    return detection_result
 
