@@ -10,8 +10,6 @@ class DrawingStyle(Enum):
     CONTOURS = 'CONTOURS'
     IRIS = 'IRIS'
 
-model_path = '/home/sonnet/oralens/cat2/face_landmarker.task'
-
 def draw_landmarks_on_image(rgb_image, detection_result, drawing_style=None):
     """
     Draw landmarks on the input image.
@@ -85,3 +83,28 @@ def plot_face_blendshapes_bar_graph(face_blendshapes):
     ax.set_title("Face Blendshapes")
     plt.tight_layout()
     plt.show()
+
+def draw_image(openess_of_jaw: float, image: mp.Image, jaw_openness_threshold: float) -> mp.Image:
+    """
+    Draw the openness of the jaw on the image.
+
+    Args:
+        openess_of_jaw (float): The openness of the jaw.
+        image (np.ndarray): The input image.
+        jaw_openness_threshold (float): The threshold for considering the jaw open.
+
+    Returns:
+        np.ndarray: The image with openness information drawn.
+    """
+    # Determine jaw class based on the threshold
+    jaw_class = "open" if openess_of_jaw > jaw_openness_threshold else "close"
+    
+    # Create text to put on the image
+    text_to_put = f"{str(openess_of_jaw)[:5]}  {jaw_class}"
+    text_location = (0, image.shape[0] // 40 + 10)
+
+    # Put text on the image
+    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 4, cv2.LINE_AA)
+    cv2.putText(image, text_to_put, text_location, cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+
+    return image

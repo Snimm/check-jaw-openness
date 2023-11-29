@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
-from analyze_image import check_image_openness, draw_image, image_from_path
+from analyze_image import check_image_openness, image_from_path
+from draw import draw_image
 
 def run_video(video_path: str) -> None:
     """
