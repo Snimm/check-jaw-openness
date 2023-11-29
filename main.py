@@ -1,9 +1,10 @@
 import cv2
 import mediapipe as mp
 from analyze_image import check_image_for_jaw_openness, image_from_path
-from draw import draw_landmarks_on_image, draw_image
+from draw import draw_landmarks_on_image, draw_image, DrawingStyle
+import numpy as np
 
-def process_frame(image: mp.Image) -> mp.Image:
+def process_frame(image: mp.Image) -> np.ndarray:
     """
     Process a single frame by checking jaw openness, drawing landmarks, and displaying the processed image.
 
@@ -14,10 +15,12 @@ def process_frame(image: mp.Image) -> mp.Image:
         mp.Image: Processed image.
     """
     detection_result = check_image_for_jaw_openness(image)
-    annotated_image = draw_landmarks_on_image(image.numpy_view(), detection_result, drawing_style=None)
+    # image = draw_landmarks_on_image(image.numpy_view(), detection_result, drawing_style=None)
+    
+    image = np.copy(image.numpy_view())
     # Get the openness of the jaw
     openness_of_jaw = detection_result.face_blendshapes[0][25].score
-    processed_image = draw_image(openness_of_jaw, image=annotated_image, jaw_openness_threshold=0.01)
+    processed_image = draw_image(openness_of_jaw, image=image, jaw_openness_threshold=0.01)
     return processed_image
 
 def run_video(video_path: str) -> None:
