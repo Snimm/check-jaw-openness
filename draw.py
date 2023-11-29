@@ -74,7 +74,7 @@ def draw_image(openess_of_jaw: float, image: mp.Image, jaw_openness_threshold: f
         np.ndarray: The image with openness information drawn.
     """
     # Determine jaw class based on the threshold
-    jaw_class = "open" if openess_of_jaw > jaw_openness_threshold else "close"
+    jaw_class = "open" if openess_of_jaw > jaw_openness_threshold else "closed"
     
     # Create text to put on the image
     text_to_put = f"{str(openess_of_jaw)[:5]}  {jaw_class}"
